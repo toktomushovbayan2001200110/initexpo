@@ -1,0 +1,138 @@
+{% extends 'main/layout.html' %}
+
+{% block content %}
+  <!-- Секция баннера -->
+  <section class="banner">
+    <div class="content">
+      <h1>О нас</h1>
+      <p>INIT EXPO 2025 — это межвузовский конкурс, который объединяет студентов всех университетов Кыргызстана. Мы стремимся выявить таланты и способности молодых людей, чтобы создавать будущее уже сегодня.</p>
+      <a href="{% url 'expo' %}" class="btn-primary">Узнать больше</a>
+    </div>
+  </section>
+
+  <!-- Секция о конкурсе -->
+  <section class="about">
+    <div class="content">
+      <h2>Наши цели</h2>
+      <p>INIT EXPO 2025 направлен на развитие научных, технических и творческих способностей студентов, а также на создание условий для обмена знаниями и идеями между университетами страны.</p>
+      <h2>Как это работает?</h2>
+      <p>Студенты смогут представить свои проекты в рамках четырех различных секций, продемонстрировав свой потенциал и инновационные идеи. Каждая секция будет оцениваться независимыми экспертами, а лучшие работы получат награды и признание.</p>
+    </div>
+  </section>
+
+  <style>
+    /* Общие стили */
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+    }
+
+    /* Секция баннера */
+    .banner {
+      background: linear-gradient(120deg, #6c3, #09f);
+      color: white;
+      text-align: center;
+      padding: 10vmin;
+      margin-bottom: 2vmin;
+      border-radius: 1em;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .banner h1 {
+      font-size: 3em;
+      font-weight: bold;
+      margin-bottom: 15px;
+      letter-spacing: 1px;
+    }
+
+    .banner p {
+      font-size: 1.4em;
+      margin-bottom: 20px;
+      line-height: 1.5;
+      opacity: 0.8;
+    }
+
+    .banner .btn-primary {
+      background-color: #fff;
+      padding: 12px 30px;
+      font-size: 1.2em;
+      border-radius: 25px;
+      color: #09f;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .banner .btn-primary:hover {
+      background-color: #6c3;
+      color: white;
+      transform: translateY(-3px);
+    }
+
+    /* Секция о конкурсе */
+    .about {
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 5vmin;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      border-radius: 1em;
+      margin: 2vmin 0;
+    }
+
+    .about h2 {
+      color: #333;
+      font-size: 2em;
+      margin-bottom: 10px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .about p {
+      color: #555;
+      font-size: 1.2em;
+      line-height: 1.6;
+    }
+
+    .about .content {
+      background-color: rgba(255, 255, 255, 0.95);
+      border-radius: 1em;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      padding: 4vmin;
+      text-align: left;
+      animation: slideIn 1s ease-out;
+    }
+
+    /* Анимация появления */
+    @keyframes slideIn {
+      0% {
+        transform: translateX(-50px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    /* Стиль кнопок */
+    .btn-primary {
+      background-color: #6c3;
+      padding: 12px 30px;
+      font-size: 1.2em;
+      border-radius: 25px;
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      background-color: #09f;
+      color: white;
+      transform: translateY(-3px);
+    }
+  </style>
+
+{% endblock %}

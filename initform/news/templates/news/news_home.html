@@ -1,0 +1,29 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %}
+    <title>Новости</title>
+{% endblock %}
+
+{% block content %}
+    <div class="content-header">
+        <h1>Новости</h1>
+    </div>
+
+    <div class="features">
+        {% if news %}
+            {% for el in news %}
+                <div class="card">
+                    {% if el.image %}
+                        <img src="{{ el.image.url }}" alt="{{ el.title }}">
+                    {% endif %}
+                    <h3>{{ el.title }}</h3>
+                    <p>{{ el.anons|truncatewords:20 }}</p>
+                    <a href="{% url 'news_detail_view' el.id %}" class="btn-custom">Подробнее</a>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>Новостей нет</p>
+        {% endif %}
+    </div>
+{% endblock %}

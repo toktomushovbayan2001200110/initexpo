@@ -1,0 +1,467 @@
+/* Общие стили */
+body {
+    background: #F4F4F4;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Левая сторона */
+aside {
+    background: #FFFFFF;
+    width: 22%;
+    padding: 30px;
+    height: 100vh;
+    color: #222;
+    border-right: 1px solid #D8D8D8;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    position: relative;
+}
+
+aside .logo-container {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+aside img {
+    width: 90px;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+aside .logo {
+    font-size: 36px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+aside h3 {
+    margin-top: 40px;
+    font-size: 26px;
+    font-weight: bold;
+    color: #007AFF;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+aside ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 0 0;
+}
+
+aside ul li {
+    color: #333;
+    display: block;
+    margin-top: 20px;
+    font-size: 20px;
+    padding: 10px 15px;
+    border-radius: 12px;
+    transition: transform 0.6s ease-in-out, box-shadow 0.6s ease-in-out;
+    font-weight: 600;
+    text-transform: capitalize;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+aside ul li:hover {
+    background-color: #F0F0F5;
+    border-radius: 12px;
+    padding: 12px 18px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+aside ul li, aside ul a {
+    transition: transform 0.6s ease-in-out, color 0.3s ease;
+}
+
+aside ul li:hover, aside ul a:hover {
+    color: #007AFF;
+    text-decoration: none;
+    transform: scale(1.1);
+}
+
+aside ul a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    width: 100%;
+}
+/* Секция баннера */
+.banner {
+    height: 90vh;
+    background: linear-gradient(rgba(117, 169, 216, 0.21), rgba(34, 49, 63, 0.29)), url('banner.jpg') center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    padding: 0 20px;
+    animation: fadeIn 2s ease-in-out;
+    border-radius: 20px; /* Круглые края баннера */
+}
+
+/* Контейнер для левой и правой сторон */
+.container-fluid {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+}
+.banner h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+    text-shadow: 3px 3px 5px srgba(0, 0, 0, 0.4);
+    animation: slideUp 2s ease-out;
+}
+
+.banner p {
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 2rem;
+    animation: fadeIn 3s ease-in-out;
+}
+
+.btn-primary {
+    background-color: #ff5c5c;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.5rem;
+    border-radius: 50px; /* Круглый наконечник */
+    color: #fff;
+    text-decoration: none;
+    box-shadow: 0px 5px 15px rgba(255, 92, 92, 0.4);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: scale(1.1);
+    background-color: #e84f4f;
+}
+
+/* Секция таймера */
+.countdown {
+    background: #fff;
+    padding: 60px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border-top: 5px solid #ff5c5c;
+    border-bottom: 5px solid #ff5c5c;
+    width: 100%;
+    box-sizing: border-box;
+    animation: fadeIn 2s ease-in-out;
+    border-radius: 20px; /* Круглые края секции */
+}
+
+.countdown h2 {
+    color: #2c3e50;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.countdown-circle {
+    position: relative;
+    width: 220px;
+    height: 220px;
+    margin-top: 30px;
+    border-radius: 50%; /* Круглый таймер */
+    background: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+    animation: rotateCircle 10s infinite linear;
+}
+
+.circle {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    background: #fff;
+    border-radius: 50%; /* Круглый круг таймера */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    animation: pulseCircle 1s infinite alternate;
+}
+
+.circle-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 92, 92, 0.3);
+    border-radius: 50%;
+    transition: transform 1s ease-in-out;
+    pointer-events: none;
+}
+
+#timer {
+    font-size: 3.5rem;
+    color: #2c3e50;
+    font-weight: bold;
+    letter-spacing: 2px;
+    z-index: 1;
+    animation: fadeInText 1s ease-out, changeColor 5s infinite;
+}
+
+/* Анимации */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    0% {
+        transform: translateY(100px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes rotateCircle {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes pulseCircle {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes fadeInText {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes changeColor {
+    0% {
+        color: #ff5c5c;
+    }
+    50% {
+        color: #f1c40f;
+    }
+    100% {
+        color: #2c3e50;
+    }
+}
+
+/* Стили для видеофона */
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;  /* Помещаем видео на задний план */
+    overflow: hidden;
+}
+
+.video-background video {
+    object-fit: cover;  /* Обрезает видео так, чтобы оно полностью заполнило экран */
+    width: 100%;
+    height: 100%;
+}
+
+/* Стили для контента на баннере */
+.banner-content {
+    position: relative;
+    z-index: 1; /* Этот блок будет поверх видео */
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
+
+.banner-content h1 {
+    font-size: 48px;
+    font-weight: bold;
+}
+
+.banner-content p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.banner-content .btn-primary {
+    padding: 10px 20px;
+    background-color: #ff5c5c;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px; /* Круглый наконечник кнопки */
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.banner-content .btn-primary:hover {
+    background-color: #ff2d2d;
+}
+
+
+
+/* Блок для карточек контента */
+.features {
+    display: grid; /* Сетка */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Автоматическая сетка */
+    gap: 20px; /* Промежутки между карточками */
+    margin-top: 20px; /* Отступ сверху */
+}
+
+/* Заголовки для карточек */
+.features h1 {
+    font-size: 40px; /* Размер заголовка */
+    margin-bottom: 20px; /* Отступ снизу */
+    color: #333; /* Цвет заголовка */
+}
+
+/* Карточки контента */
+.card {
+    background: #FFFFFF; /* Белый фон */
+    padding: 15px; /* Отступы */
+    border-radius: 12px; /* Скругленные углы */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Легкая тень */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Плавные переходы */
+    text-align: center; /* Выравнивание по центру */
+}
+
+.card:hover {
+    transform: translateY(-3px); /* Подъем при наведении */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Увеличенная тень при наведении */
+}
+
+/* Стили для изображений карточки */
+.card img {
+    border-radius: 8px; /* Скругленные углы изображения */
+    margin-bottom: 10px; /* Отступ от текста */
+    transition: transform 0.3s ease; /* Эффект наведения */
+}
+
+/* Эффект увеличения при наведении */
+.card img:hover {
+    transform: scale(1.05); /* Увеличение изображения при наведении */
+}
+
+/* Заголовок и текст карточки */
+.card h3 {
+    font-size: 22px; /* Размер заголовка карточки */
+    margin-bottom: 5px; /* Отступ снизу */
+    color: #0056b3; /* Цвет заголовка карточки */
+}
+
+.card p {
+    font-size: 14px; /* Размер текста карточки */
+    color: #555; /* Цвет текста */
+}
+
+/* Дата публикации */
+.date {
+    font-size: 12px; /* Размер текста даты */
+    color: #999; /* Цвет для даты */
+    margin-bottom: 10px; /* Отступ снизу */
+}
+
+/* Кнопка в карточке */
+.card .btn-custom {
+    background-color: #007AFF; /* Синий цвет кнопки */
+    color: #FFFFFF; /* Цвет текста кнопки */
+    border-radius: 5px; /* Скругленные углы */
+    padding: 8px 12px; /* Отступы */
+    text-decoration: none; /* Убираем подчеркивание */
+    display: inline-block; /* Блочный элемент */
+    margin-top: 10px; /* Отступ сверху */
+    transition: background-color 0.3s ease, transform 0.2s; /* Плавные переходы */
+}
+
+.card .btn-custom:hover {
+    background-color: #0056b3; /* Темный синий при наведении */
+    transform: scale(1.03); /* Эффект увеличения при наведении */
+}
+
+.main {
+    max-width: calc(100% - 40px); /* Ширина карточки с учетом отступов */
+    margin: 20px auto; /* Отступ сверху и снизу */
+    padding: 30px; /* Внутренние отступы */
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.content-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.article-image img {
+    width: 70%; /* Уменьшаем размер изображения до 70% от контейнера */
+    height: auto; /* Сохраняем пропорции */
+    border-radius: 15px;
+    margin: 0 auto; /* Центрируем изображение */
+    display: block;
+}
+
+.article-content {
+    font-size: 1.1em; /* Размер шрифта */
+    line-height: 1.6; /* Межстрочный интервал */
+    color: #333;
+}
+
+.btn-custom {
+    display: block;
+    margin: 20px auto;
+    padding: 15px; /* Высота кнопки */
+    background-color: #007AFF;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.btn-custom:hover {
+    background-color: #0056b3;
+}
+
+.comments-section {
+    margin-top: 40px; /* Отступ сверху для комментариев */
+    border-top: 1px solid #E0E0E0;
+    padding-top: 20px;
+}
+
+.comment {
+    margin-bottom: 20px; /* Отступ снизу для комментариев */
+    padding: 10px;
+    border: 1px solid #E0E0E0;
+    border-radius: 10px;
+    background-color: #F9F9F9;
+}

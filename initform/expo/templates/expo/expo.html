@@ -1,0 +1,130 @@
+{% extends 'main/layout.html' %}
+{% block content %}
+<section class="banner position-relative">
+    <!-- Фоны с анимацией -->
+    <div class="bg"></div>
+    <div class="bg bg2"></div>
+    <div class="bg bg3"></div>
+
+    <!-- Основной контент -->
+    <div class="container text-center mt-5">
+        <div class="right-container p-4 bg-light rounded-3 shadow-lg">
+            <h2 class="forum-title text-primary mb-4">Добро пожаловать на INIT EXPO 2025</h2>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <a href="{% url 'register_participant' %}" class="text-decoration-none text-dark">
+                        <i class="bi bi-person-plus-fill me-2"></i>Регистрация участников
+                    </a>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <a href="{% url 'participants_by_section' %}" class="text-decoration-none text-dark">
+                        <i class="bi bi-journal-text me-2"></i>Участники по секциям
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<style>
+    html, body {
+        height: 100%;
+        margin: 0;
+        font-family: 'Arial', sans-serif;
+    }
+
+    /* Фоны с анимацией */
+    .bg {
+        animation: slide 4s ease-in-out infinite alternate;
+        background-image: linear-gradient(-60deg, #6c3 50%, #09f 50%);
+        position: fixed;
+        top: 0;
+        left: -50%;
+        right: -50%;
+        bottom: 0;
+        opacity: 0.6;
+        z-index: -1;
+    }
+
+    .bg2 {
+        animation-direction: alternate-reverse;
+        animation-duration: 5s;
+    }
+
+    .bg3 {
+        animation-duration: 6s;
+    }
+
+    /* Правый контейнер */
+    .right-container {
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 15px;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 2rem;
+        position: relative;
+        z-index: 1;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    /* При наведении на контейнер */
+    .right-container:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Заголовок форума */
+    .forum-title {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #007bff;
+        letter-spacing: 1px;
+        margin-bottom: 1.5rem;
+    }
+
+    /* Список с ссылками */
+    .list-group-item {
+        font-size: 1.1rem;
+        color: #333;
+        padding: 15px;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .list-group-item:hover {
+        background-color: #f8f9fa;
+        transform: translateX(10px);
+    }
+
+    .list-group-item i {
+        font-size: 1.25rem;
+        color: #007bff;
+    }
+
+    /* Анимация для фона */
+    @keyframes slide {
+        0% {
+            transform: translateX(-30%);
+        }
+        100% {
+            transform: translateX(30%);
+        }
+    }
+
+    /* Мобильная версия */
+    @media (max-width: 768px) {
+        .right-container {
+            padding: 1.5rem;
+        }
+
+        .forum-title {
+            font-size: 1.5rem;
+        }
+
+        .list-group-item {
+            font-size: 1rem;
+        }
+    }
+</style>
+
+{% endblock %}

@@ -1,0 +1,229 @@
+{% extends 'main/layout.html' %}
+
+{% block content %}
+
+    <!-- Фоны с анимацией -->
+    <div class="bg"></div>
+    <div class="bg bg2"></div>
+    <div class="bg bg3"></div>
+
+    <!-- Основной контент -->
+    <div class="right-container">
+        <h2 class="forum-title">Участники по секциям</h2>
+        <div class="sections-grid">
+            {% for section in sections %}
+                <div class="section-container">
+                    <h3>{{ section.name }}</h3>  {# Используйте просто имя секции #}
+                    <div class="sort-buttons">
+                        <a href="{% url 'participants_by_section' %}?sort=last_name" class="sort-button"><i class="fas fa-sort-alpha-up sort-icon"></i>Фамилия</a>
+                        <a href="{% url 'participants_by_section' %}?sort=first_name" class="sort-button"><i class="fas fa-sort-alpha-up sort-icon"></i>Имя</a>
+                        <a href="{% url 'participants_by_section' %}?sort=university" class="sort-button"><i class="fas fa-sort-alpha-up sort-icon"></i>Университет</a>
+                    </div>
+
+                    <div class="participants-container">
+                        {% for participant in section.participants %}
+                            <div class="participant-item">
+                                <strong>{{ participant.first_name }} {{ participant.last_name }}</strong>
+                                <span class="small-text">Руководитель: {{ participant.supervisor }}</span>
+                                <span class="small-text">Университет: {{ participant.university }}</span>
+                                <span class="small-text">Факультет: {{ participant.faculty }}</span>
+                                <span class="small-text">Тема: {{ participant.theme }}</span>
+                            </div>
+                        {% empty %}
+                            <p class="no-participants">Нет зарегистрированных участников</p>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% empty %}
+                <p class="no-participants">Нет секций для отображения.</p>
+            {% endfor %}
+        </div>
+
+
+</section>
+
+<style>
+    /* Основные стили для страницы */
+    html, body {
+        height: 100%;
+        margin: 0;
+        font-family: 'Arial', sans-serif;
+    }
+
+    /* Фоны с анимацией */
+    .bg {
+        animation: slide 4s ease-in-out infinite alternate;
+        background-image: linear-gradient(-60deg, #6c3 50%, #09f 50%);
+        position: fixed;
+        top: 0;
+        left: -50%;
+        right: -50%;
+        bottom: 0;
+        opacity: 0.6;
+        z-index: -1;
+    }
+
+    .bg2 {
+        animation-direction: alternate-reverse;
+        animation-duration: 5s;
+    }
+
+    .bg3 {
+        animation-duration: 6s;
+    }
+
+    /* Анимация для фона */
+    @keyframes slide {
+        0% {
+            transform: translateX(-30%);
+        }
+        100% {
+            transform: translateX(30%);
+        }
+    }
+
+    /* Стили для контейнера секций */
+    .right-container {
+        padding: 2rem; /* Увеличили отступы */
+        max-width: 2400px; /* Увеличили максимальную ширину */
+        margin: 0 auto;
+        background-color: rgb(255 255 255 / 41%);
+        border-radius: 12px;
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Заголовок для форума */
+    .forum-title {
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: #007bff;
+        letter-spacing: 1px;
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+
+    /* Кнопки сортировки */
+    .sort-buttons {
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+
+    .sort-button {
+        text-decoration: none;
+        color: #007bff;
+        padding: 6px 12px;
+        margin: 0 5px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        border: 1px solid #007bff;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .sort-button:hover {
+        background-color: #007bff;
+        color: white;
+    }
+
+    /* Контейнер для секций, расположение секций по 2 колонки */
+    .sections-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);  /* 2 колонки */
+        gap: 30px;
+        padding: 1rem 0;
+    }
+
+    /* Стили для каждого участника */
+    .section-container {
+        width: 100%;
+        background-color: #fff;
+        padding: 12px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Контейнер для участников */
+    .participants-container {
+        display: flex;
+        flex-direction: column;  /* Устанавливаем вертикальный порядок */
+        gap: 15px;  /* Добавляем отступы между участниками */
+        padding: 0.5rem;
+    }
+
+    /* Стили для каждого участника */
+    .participant-item {
+        width: 100%;  /* Участник занимает всю ширину */
+        box-sizing: border-box;
+        background-color: #fff;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        font-size: 0.85rem;
+    }
+
+    .participant-item:hover {
+        background-color: #f1f9ff;
+        border-color: #007bff;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .participant-item strong {
+        color: #007bff;
+        font-size: 1rem;
+        margin-bottom: 3px;
+    }
+
+    .participant-item span {
+        color: #555;
+        font-size: 0.85rem;
+    }
+
+    .participant-item span:last-child {
+        font-weight: bold;
+        color: #333;
+    }
+
+    .small-text {
+        font-size: 0.8rem; /* Сделано меньше для компактности */
+    }
+
+    .no-participants {
+        color: #dc3545;
+        font-size: 1rem;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    /* Мобильная версия */
+    @media (max-width: 768px) {
+        .right-container {
+            padding: 1.5rem;
+        }
+
+        .forum-title {
+            font-size: 1.4rem;
+        }
+
+        .section-container {
+            padding: 10px;
+        }
+
+        .sections-grid {
+            grid-template-columns: 1fr;  /* На мобильных устройствах 1 колонка */
+        }
+    }
+
+    /* Очень маленькие экраны */
+    @media (max-width: 480px) {
+        .section-container {
+            padding: 8px;
+        }
+    }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block content %}
+<div class="main">
+    <link rel="stylesheet" href="{% static 'news/css/article_detail.css' %}">
+    <div class="content-header">
+        <h1>{{ article.title }}</h1>
+
+        <div class="article-image">
+            {% if article.image %}
+                <img src="{{ article.image.url }}" alt="{{ article.title }}">
+            {% endif %}
+        </div>
+
+        <p>Дата публикации: {{ article.date|date:"d M Y" }}</p>
+    </div>
+
+    <div class="article-content">
+        {{ article.full_text|safe }}
+    </div>
+
+    <a href="{% url 'news_home' %}" class="btn-custom">Назад к новостям</a>
+</div>
+{% endblock %}
